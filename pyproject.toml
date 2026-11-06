@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modelgate"
+version = "0.1.0"
+description = "Leakage-aware temporal model evaluation and local HTTP serving on UCI Bank Marketing"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "numpy==2.3.4", "pandas==2.3.3", "scipy==1.16.2", "scikit-learn==1.7.2",
+  "skops==0.13.0", "fastapi==0.119.1", "pydantic==2.12.3", "uvicorn==0.38.0",
+  "httpx==0.28.1", "anyio==4.11.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2", "ruff==0.14.2"]
+
+[project.scripts]
+modelgate = "modelgate.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = ["integration: real subprocess HTTP and real trained-model integration tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

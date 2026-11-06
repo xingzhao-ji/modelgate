@@ -1,0 +1,32 @@
+{
+  "algorithm": "SHA-256",
+  "created_at": "2026-10-23T17:10:00.886074+00:00",
+  "files": {
+    ".github/workflows/ci.yml": "481c2c985cc4d8d5ed00fb412825dd80746f0cc03fbd3c4e4aa7f87a704202ac",
+    "Makefile": "69698e68a388ba7baa205e476abbb5eafb75f84e850cd5c892c72c3dfe2a6f0e",
+    "pyproject.toml": "cf95c994c1fac35db60e5fb97aed2e964ac1466f4afe875849a9947772533c66",
+    "requirements.lock": "c8f5995bae302c814558e116c26324e352488d1642e9d5fa850fb167b69ee655",
+    "src/modelgate/__init__.py": "57616d4b3cbd5bccbb7976b172d3fdb9b3367ed39b7c6b73807085df37d2784a",
+    "src/modelgate/__main__.py": "f3e45cd42e4ae1da779c0a856e6346b101f6a01acb16a42dfcccb208e0b91f8b",
+    "src/modelgate/api.py": "1814d6550b9ec9220795dfaf009e453d69a627df1847268d122afa30b366cdfb",
+    "src/modelgate/artifacts.py": "b4b72bbd88546fd9503a82372d619b064ddd06d3a16791b6f652bcebedeb2874",
+    "src/modelgate/cli.py": "2e688e420ae5b8d6426ca4384c52ea831f84ddbfff2b952e6ec977d322952d80",
+    "src/modelgate/data.py": "5c677fac483769aa7f83405e61afb0558eda5f619e42557ab1474142a2eec628",
+    "src/modelgate/download.py": "f133136493b7db9b6f1e96f0c390f1bd93d7a68f7f25ff6bfcb19f22dd1c80c6",
+    "src/modelgate/drift.py": "5be529a1aa05c60b10578413f76f5d6ac46f144d2a4f25af1114b0aae5e7435b",
+    "src/modelgate/evaluation.py": "6b53762de2bf25481599e465d92e1aabe8cafabbdbcf4d95ecd9dc25cfb4222b",
+    "src/modelgate/experiment.py": "e1a9b69e2364a4063a1ceb10328965ff1cdbb0f1a608520fe5936869a0bc5bf2",
+    "src/modelgate/metrics.py": "0de0efdbbbab3084e449a9f1ac0dcd9ba455740db74387e8b83a1efeea63d8af",
+    "src/modelgate/training.py": "a641b0f4f582852d704e3fe4db88539a19caf426adb4b471b9ef862136b97d16",
+    "tests/conftest.py": "9cdbd84038778ec1c9387e9b050f3cd2beca3144c30888f424bde879893eb6db",
+    "tests/test_api.py": "096ed8595a38d3970fa4cd2cacb3bfcf677eea98b60fee601a797ad5e5b4d51f",
+    "tests/test_artifacts_drift.py": "c48af3af9f22b97dfbcf12234358c1e0bf931f1c2afc79f035fd9d6145ccc61b",
+    "tests/test_data.py": "237255fa33c21c2d9e93f1f39574b9ddae1d84e9716f2bfdbd67635315efc1b9",
+    "tests/test_evaluation_download.py": "840cbcba351ce11d3dc575107117e7d6c1457e0881b518211e00df1ee090bf56",
+    "tests/test_experiment.py": "d7735ac4e16e79a55059aa6136156a0299902df52d9750ec9d399a8c2a9ab691",
+    "tests/test_training.py": "b661e8f1d0ee2b8d49ab0ede21f76bf7145e752d155a4a7fa7b28b99a6a85347"
+  },
+  "scope": "implementation, behavior tests, dependency lock and execution/CI configuration",
+  "updated_at": "2026-10-23T18:17:36.095484+00:00",
+  "update_reason": "Replace macOS-hidden editable .pth dependency with a regular wheel; source tests explicitly use PYTHONPATH=src."
+}

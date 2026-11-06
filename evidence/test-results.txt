@@ -1,0 +1,7 @@
+.venv/bin/ruff check .
+All checks passed!
+.venv/bin/ruff format --check .
+31 files already formatted
+PYTHONPATH=src .venv/bin/pytest -q -W error
+......................................................                   [100%]
+54 passed in 19.16s

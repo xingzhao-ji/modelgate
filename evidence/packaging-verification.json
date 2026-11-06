@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-23T18:19:30.354414+00:00",
+  "environment": "fresh .verify-venv, Python3.12; no PYTHONPATH",
+  "install": "pip install -r requirements.lock; pip install --no-deps .",
+  "editable_install": false,
+  "cli_help_exit_code": 0,
+  "http_health_status": 200,
+  "http_prediction_status": 200,
+  "health": {
+    "status": "ready",
+    "model_id": "e270589ced4100c6"
+  },
+  "prediction": {
+    "model_id": "e270589ced4100c6",
+    "threshold": 0.2964932580601054,
+    "predictions": [
+      {
+        "probability": 0.1125769589374202,
+        "selected": false
+      }
+    ],
+    "usage": "local research demo; not approved for real marketing decisions"
+  },
+  "source_test_command": "make test",
+  "source_tests_passed": 54,
+  "model_changes": false
+}

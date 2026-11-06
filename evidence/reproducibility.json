@@ -1,0 +1,24 @@
+{
+  "checked_fields": [
+    "config",
+    "selection_metrics",
+    "selected_model",
+    "partitions",
+    "policy",
+    "development_prevalence",
+    "policy_calibration_comparison"
+  ],
+  "exact_probability_match_rows": 500,
+  "hardware": {
+    "cpu": "Apple M4 Pro",
+    "memory_bytes": 51539607552
+  },
+  "max_absolute_probability_difference": 0.0,
+  "model_id_note": "content hash differs because skops archive metadata differs; model behavior exactly matches",
+  "original_model_id": "e270589ced4100c6",
+  "recorded_at": "2026-10-23T17:10:01.012627+00:00",
+  "reproduced_model_id": "4429023595f1f4f6",
+  "retuned_after_test": false,
+  "same_training_decisions_and_metrics": true,
+  "training_command": "modelgate train --artifact artifacts/reproduction-check --report runs/reproduction-check/training.json"
+}

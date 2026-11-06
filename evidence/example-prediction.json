@@ -1,0 +1,11 @@
+{
+  "model_id": "e270589ced4100c6",
+  "predictions": [
+    {
+      "probability": 0.1125769589374202,
+      "selected": false
+    }
+  ],
+  "threshold": 0.2964932580601054,
+  "usage": "local research demo; not approved for real marketing decisions"
+}

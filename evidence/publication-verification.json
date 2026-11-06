@@ -1,0 +1,60 @@
+{
+  "verified_utc": "2026-11-06T18:26:41.513645+00:00",
+  "scope": "Standalone installation and tests; original dataset/model evaluation not rerun locally for publication.",
+  "commands": [
+    {
+      "command": [
+        "python3.12",
+        "-m",
+        "venv",
+        ".venv"
+      ],
+      "exit_code": 0,
+      "error": null,
+      "elapsed_seconds": 1.4912892920001468
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "--no-cache-dir",
+        "-r",
+        "requirements.lock"
+      ],
+      "exit_code": 0,
+      "error": null,
+      "elapsed_seconds": 17.8279762079992
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "--no-cache-dir",
+        "--no-deps",
+        "."
+      ],
+      "exit_code": 0,
+      "error": null,
+      "elapsed_seconds": 2.1057840000003125
+    },
+    {
+      "command": [
+        "make",
+        "test"
+      ],
+      "exit_code": 0,
+      "error": null,
+      "elapsed_seconds": 27.92773812499945
+    }
+  ],
+  "tests_passed": 54,
+  "source_bindings_unchanged": 23,
+  "historical_source_manifest": "source-inventory.json",
+  "readme_original_sha256": "b6f91c36aa17a7eee1ab8ae4ad9075585ab85c0ea375272a8da56492386071c3",
+  "readme_published_sha256": "167feb081f618de5184a7f603f64df5c3f6298c0679ef33971517ec810a301b1",
+  "hosted_ci": "Not yet run as of this local verification record."
+}
