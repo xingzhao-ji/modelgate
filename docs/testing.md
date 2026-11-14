@@ -1,6 +1,6 @@
 # Verification notes
 
-The suite tests data leakage and service behavior using actual sklearn estimators, serialized artifacts, filesystem writes, and HTTP. Tiny generated datasets are deterministic fixtures for fast tests; all portfolio results come from the complete public UCI snapshot.
+The suite tests data leakage and service behavior using actual sklearn estimators, serialized artifacts, filesystem writes, and HTTP. Tiny generated datasets are deterministic fixtures for fast tests; all reported results come from the complete public UCI snapshot.
 
 The implementation began with behavior tests and explicit unimplemented API boundaries. The first run produced 19 expected failures for split isolation, schema validation, train-only preprocessing, probability metrics, threshold choice, and training. These passed after implementation. Artifact/drift and HTTP features followed the same red/green sequence. The actual-HTTP test first failed because no module CLI existed; after implementation it starts an independent uvicorn process and compares HTTP probabilities against batch CLI output. A reference-distribution corruption test was observed failing before load-time profile validation was added.
 

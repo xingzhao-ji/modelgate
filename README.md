@@ -4,7 +4,7 @@
 
 ModelGate trains real classifiers on 41,188 ordered UCI Bank Marketing observations, freezes a model without looking at its test window, and measures what happens as the population changes. The selected model improves ranking, but fails the calibration and drift checks. The result is deliberately **HOLD**, not a claim of production readiness.
 
-This project adds practical model training and evaluation to an API engineering portfolio: feature leakage prevention, time-based validation, train-only preprocessing, baseline comparison, probability calibration, immutable artifacts, bounded HTTP inference, batch scoring, and reproducible failure experiments. All measurements are local CPU measurements. No paid services, credentials, private application data, GPU training, or deployed customers are involved.
+This project focuses on practical model training and evaluation: feature leakage prevention, time-based validation, train-only preprocessing, baseline comparison, probability calibration, immutable artifacts, bounded HTTP inference, batch scoring, and reproducible failure experiments. All measurements are local CPU measurements. No paid services, credentials, private application data, GPU training, or deployed customers are involved.
 
 ## Run it
 
@@ -127,11 +127,11 @@ Recorded on an Apple M4 Pro with 48 GiB RAM, macOS 27.0.1 / arm64, Python 3.12.1
 
 Batching amortizes Python and validation overhead. Four concurrent clients do not improve this small CPU service's throughput; no scale-out claim is warranted.
 
-The [reviewed failure experiment](evidence/experiment-reviewed.json) shows a malformed request returns **422**, the next valid request succeeds with **200**, and appending bytes to a copied estimator makes a restarted service return **503** for health and scoring. The [initial run](evidence/experiment.json) is retained to show measurement variability. A training-distribution replay produces zero PSI; naturally shifted holdout data and the injected age/job shift alert. PSI uses train-fixed bins, explicit missing/unseen buckets, and a documented heuristic threshold of 0.25. It detects covariate changes; it cannot establish concept drift or quantify lost accuracy without labels.
+The [final failure experiment](evidence/experiment-reviewed.json) shows a malformed request returns **422**, the next valid request succeeds with **200**, and appending bytes to a copied estimator makes a restarted service return **503** for health and scoring. The [initial run](evidence/experiment.json) is retained to show measurement variability. A training-distribution replay produces zero PSI; naturally shifted holdout data and the injected age/job shift alert. PSI uses train-fixed bins, explicit missing/unseen buckets, and a documented heuristic threshold of 0.25. It detects covariate changes; it cannot establish concept drift or quantify lost accuracy without labels.
 
-## Verification and interview discussion
+## Verification and walkthrough
 
-`make test` runs formatting, lint, and the complete suite with warnings treated as errors. The final run passes **54 tests**, including actual fitted models and uvicorn subprocesses over TCP. [Testing notes](docs/testing.md) describe the red/green evidence and meaningful boundaries. A [fresh independent agent review](docs/independent-review.md) found and verified fixes for two boundary bugs and exactly reproduced the recorded evaluation. A [separate training replay](evidence/reproducibility.json) matched all selection decisions and 500 probabilities exactly. [CI](.github/workflows/ci.yml) also downloads the public snapshot, trains, evaluates, and runs the HTTP experiment when this directory is used as a standalone repository; it has not been run on a hosted runner in this local session.
+`make test` runs formatting, lint, and the complete suite with warnings treated as errors. The final run passes **54 tests**, including actual fitted models and uvicorn subprocesses over TCP. [Testing notes](docs/testing.md) describe the red/green evidence and meaningful boundaries. A [separate training replay](evidence/reproducibility.json) matched all selection decisions and 500 probabilities exactly. [CI](.github/workflows/ci.yml) also downloads the public snapshot, trains, evaluates, and runs the HTTP experiment when this directory is used as a standalone repository; it has not been run on a hosted runner.
 
 A useful walkthrough is: explain why `duration` leaks; show the test-set mutation test; compare full-feature and ablated candidates; explain why a high AP can coexist with poor calibration; corrupt an artifact; then show why local batching improved throughput while concurrent single requests did not. The hard part is defending the evaluation and failure behavior, not listing frameworks.
 
@@ -139,4 +139,6 @@ Data attribution, assumptions, and permissible use are in the [data card](docs/d
 
 ## Public release verification
 
-The November 2026 standalone packaging check installed pinned requirements and a regular wheel in a fresh Python 3.12 environment, then passed lint, formatting and all 54 tests. It did not retrain the historical public-data model or replace its recorded HOLD result. See [publication verification](evidence/publication-verification.json). This portfolio project was built with AI assistance; its separate automated review does not establish personal mastery.
+The November 2026 standalone packaging check installed pinned requirements and a regular wheel in a fresh Python 3.12 environment, then passed lint, formatting and all 54 tests. It did not retrain the historical public-data model or replace its recorded HOLD result. See [publication verification](evidence/publication-verification.json).
+
+Built with AI coding tools (Claude Code and Codex CLI); I reviewed and tested the result.
